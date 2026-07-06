@@ -1,92 +1,90 @@
-{
-    "heroes": [
-        {
-            "id": "1",
-            "codeName": "קורונה",
-            "powers": [
-                "טלקינזה",
-                "תעופה"
-            ],
-            "threatLevel": 8,
-            "status": "active",
-            "origin": "מעבדות החלל",
-            "affiliations": [
-                "VIGIL"
-            ],
-            "firstSighting": "2025-05-12",
-            "notes": "הגיבור הראשון שהתגלה בסדרה",
-            "createdAt": "2026-01-01T10:00:00Z",
-            "updatedAt": "2026-06-01T12:00:00Z"
-        },
-        {
-            "id": "2",
-            "codeName": "פלדה",
-            "powers": [
-                "עמידות אש",
-                "כוח על"
-            ],
-            "threatLevel": 5,
-            "status": "missing",
-            "origin": "עיר הנמל",
-            "affiliations": [
-                "VIGIL",
-                "צוות X"
-            ],
-            "firstSighting": "2025-08-20",
-            "notes": "נעלם במהלך המשימה האחרונה",
-            "createdAt": "2026-02-15T09:30:00Z",
-            "updatedAt": "2026-07-06T14:00:00Z"
-        },
-        {
-            "id": "3",
-            "codeName": "צל",
-            "powers": [
-                "היעלמות"
-            ],
-            "threatLevel": 3,
-            "status": "retired",
-            "origin": "מחתרת הצללים",
-            "affiliations": [],
-            "firstSighting": "2024-11-02",
-            "notes": "פרש בגלל פציעה",
-            "createdAt": "2026-03-10T11:00:00Z",
-            "updatedAt": "2026-03-10T11:00:00Z"
-        },
-        {
-            "id": "4",
-            "codeName": "סופה",
-            "powers": [
-                "שליטה במזג אוויר",
-                "תעופה"
-            ],
-            "threatLevel": 9,
-            "status": "active",
-            "origin": "פסגת ההר",
-            "affiliations": [
-                "VIGIL"
-            ],
-            "firstSighting": "2026-01-15",
-            "notes": "רמת סיכון גבוהה, נמצאת במעקב הדוק",
-            "createdAt": "2026-04-20T08:00:00Z",
-            "updatedAt": "2026-04-20T08:00:00Z"
-        },
-        {
-            "id": "5",
-            "codeName": "להבה",
-            "powers": [
-                "יצירת אש",
-                "חסינות לחום"
-            ],
-            "threatLevel": 6,
-            "status": "deceased",
-            "origin": "העיר התחתית",
-            "affiliations": [
-                "לוחמי האש"
-            ],
-            "firstSighting": "2025-02-10",
-            "notes": "נספה במילוי תפקידו בפיצוץ הכור",
-            "createdAt": "2026-05-05T15:30:00Z",
-            "updatedAt": "2026-05-06T09:00:00Z"
-        }
-    ]
-}
+[
+    {
+        "id": "1",
+        "codeName": "קורונה",
+        "powers": [
+            "טלקינזה",
+            "תעופה"
+        ],
+        "threatLevel": 8,
+        "status": "active",
+        "origin": "מעבדות החלל",
+        "affiliations": [
+            "VIGIL"
+        ],
+        "firstSighting": "2025-05-12",
+        "notes": "הגיבור הראשון שהתגלה בסדרה",
+        "createdAt": "2026-01-01T10:00:00Z",
+        "updatedAt": "2026-06-01T12:00:00Z"
+    },
+    {
+        "id": "2",
+        "codeName": "פלדה",
+        "powers": [
+            "עמידות אש",
+            "כוח על"
+        ],
+        "threatLevel": 5,
+        "status": "missing",
+        "origin": "עיר הנמל",
+        "affiliations": [
+            "VIGIL",
+            "צוות X"
+        ],
+        "firstSighting": "2025-08-20",
+        "notes": "נעלם במהלך המשימה האחרונה",
+        "createdAt": "2026-02-15T09:30:00Z",
+        "updatedAt": "2026-07-06T14:00:00Z"
+    },
+    {
+        "id": "3",
+        "codeName": "צל",
+        "powers": [
+            "היעלמות"
+        ],
+        "threatLevel": 3,
+        "status": "retired",
+        "origin": "מחתרת הצללים",
+        "affiliations": [],
+        "firstSighting": "2024-11-02",
+        "notes": "פרש בגלל פציעה",
+        "createdAt": "2026-03-10T11:00:00Z",
+        "updatedAt": "2026-03-10T11:00:00Z"
+    },
+    {
+        "id": "4",
+        "codeName": "סופה",
+        "powers": [
+            "שליטה במזג אוויר",
+            "תעופה"
+        ],
+        "threatLevel": 9,
+        "status": "active",
+        "origin": "פסגת ההר",
+        "affiliations": [
+            "VIGIL"
+        ],
+        "firstSighting": "2026-01-15",
+        "notes": "רמת סיכון גבוהה, נמצאת במעקב הדוק",
+        "createdAt": "2026-04-20T08:00:00Z",
+        "updatedAt": "2026-04-20T08:00:00Z"
+    },
+    {
+        "id": "5",
+        "codeName": "להבה",
+        "powers": [
+            "יצירת אש",
+            "חסינות לחום"
+        ],
+        "threatLevel": 6,
+        "status": "deceased",
+        "origin": "העיר התחתית",
+        "affiliations": [
+            "לוחמי האש"
+        ],
+        "firstSighting": "2025-02-10",
+        "notes": "נספה במילוי תפקידו בפיצוץ הכור",
+        "createdAt": "2026-05-05T15:30:00Z",
+        "updatedAt": "2026-05-06T09:00:00Z"
+    }
+]
