@@ -6,7 +6,7 @@ let data = "";
 export async function readData() {
     try {
         data = await fs.readFile(dataPath, "utf8");
-        return data;
+        return JSON.parse(data);
     } catch (error) {
         console.log(error);
     }
