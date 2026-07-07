@@ -22,38 +22,69 @@ export async function writeData(data) {
 }
 
 export function filteredData(data, query) {
-    const { status, power, minLevel, maxLevel, search } = query;
-    const filtered = data.filter((hero) => {
-        (!status || hero.status === status,
-            !power || hero.power === power,
-            !minLevel || hero.minLevel === minLevel,
-            !maxLevel || hero.maxLevel === maxLevel,
-            !search || hero.search === search);
-    });
-    return filtered;
+    try {
+        const { status, powers, minLevel, maxLevel, search } = query;
+        const filtered = data.filter((hero) => {
+            const searchLower = search ? search.toLowerCase() : "";
+
+            return [
+                !status || hero.status === status,
+                !powers || hero.powers?.includes(powers),
+                !minLevel || hero.threatLevel >= Number(minLevel),
+                !maxLevel || hero.threatLevel <= Number(maxLevel),
+                !search ||
+                    hero.codeName?.toLowerCase().includes(searchLower) ||
+                    hero.notes?.toLowerCase().includes(searchLower),
+            ].every((condition) => condition === true);
+        });
+        return filtered;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export function sortData(data, sortBy, order = "asc") {
     if (!sortBy) return data;
-    const copyData = [...data];
-    copyData.sort((heroA, heroB) => {
-        heroA[sortBy] > heroB[sortBy]
-            ? 1
-            : heroA[sortBy] < heroB[sortBy]
-              ? -1
-              : 0;
-    });
-    if (order === "desc") {
-        copyData.reverse();
+    try {
+        const copyData = [...data];
+        copyData.sort((heroA, heroB) => {
+            return heroA[sortBy] > heroB[sortBy]
+                ? 1
+                : heroA[sortBy] < heroB[sortBy]
+                  ? -1
+                  : 0;
+        });
+        if (order === "desc") {
+            copyData.reverse();
+        }
+        return copyData;
+    } catch (error) {
+        console.log(error);
     }
-    return copyData;
 }
 
 export function paginateData(data, page = 1, limit = 20) {
-    const pageNumber = Number(page);
-    const limitNumber = Number(limit);
-    const skipCount = (pageNumber - 1) * limitNumber;
+    try {
+        const pageNumber = Number(page);
+        const limitNumber = Number(limit);
+        const skipCount = (pageNumber - 1) * limitNumber;
 
-    const paginated = data.slice(skipCount, skipCount + limitNumber);
+        const paginated = data.slice(skipCount, skipCount + limitNumber);
+        return paginated;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function getHeroesByQuery(query) {
+    const allHeroes = await readData();
+
+    if (Object.keys(query).length === 0) {
+        return allHeroes;
+    }
+    const filtered = filteredData(allHeroes, query);
+    const sorted = sortData(filtered, query.sortBy, query.order);
+    const paginated = paginateData(sorted, query.page, query.limit);
+
     return paginated;
 }
