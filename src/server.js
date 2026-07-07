@@ -29,15 +29,15 @@ export function serverLogic() {
             let tempParams = {};
 
             for (let i in routeParameters) {
-                if (routeParameters[i] !== reqSegments[i]) {
-                    matched = false;
-                    break;
-                } else if (routeParameters[i].startsWith(":")) {
+                if (routeParameters[i].startsWith(":")) {
                     const paramName = routeParameters[i].slice(1);
                     tempParams[paramName] = reqSegments[i];
+                } else if (routeParameters[i] !== reqSegments[i]) {
+                    matched = false;
+                    break;
                 }
             }
-            if (method) {
+            if (matched) {
                 routeHandler = router[method][route];
                 req.params = tempParams;
                 break;
@@ -58,3 +58,6 @@ export function startServer() {
         console.log("VIGIL Server is running on port 3000 ...");
     });
 }
+
+startServer();
+serverLogic();
