@@ -1,12 +1,11 @@
 import { readData, writeData } from "../services/heroService.js";
 
-export function getAllHeroes(req, res) {
+export async function getAllHeroes(req, res) {
     try {
-        const allHeroes = readData();
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.end(JSON.stringify(allHeroes));
+        const allHeroes = await readData();
+        res.end(allHeroes);
     } catch (error) {
-        res.writeHead(500, { "Content-Type": "application/json" });
-        res.end(JSON.stringify({ error: "Internal Server Error" }));
+        readData.statusCode = 500
+        res.end(JSON.stringify({ error: `Internal Server Error - ${error}` }));
     }
 }
