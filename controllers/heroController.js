@@ -6,7 +6,7 @@ export async function getAllHeroes(req, res) {
     try {
         res.end(JSON.stringify(currentData, null, 4));
     } catch (error) {
-        readData.statusCode = 500;
+        req.statusCode = 500;
         res.end(JSON.stringify({ error: `Internal Server Error - ${error}` }));
     }
 }
