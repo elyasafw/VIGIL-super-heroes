@@ -6,10 +6,12 @@ const server = http.createServer();
 
 export function serverLogic() {
     server.on("request", (req, res) => {
-        res.writeHead(req.statusCode = 200, { "Content-Type": "application/json" });
+        res.writeHead((req.statusCode = 200), {
+            "Content-Type": "application/json",
+        });
 
         const url = new URL(req.url, "http://" + req.headers.host);
-        const pathName = Object.fromEntries(url.searchParams)
+        const pathName = Object.fromEntries(url.searchParams);
         const method = req.method;
 
         const reqSegments = url.pathname.split("/").filter(Boolean);
@@ -42,10 +44,10 @@ export function serverLogic() {
             }
         }
         if (routeHandler) {
-            req.query = pathName
+            req.query = pathName;
             routeHandler(req, res);
         } else {
-            res.statusCode = 404
+            res.statusCode = 404;
             res.end(`Url ${url} not found`);
         }
     });
