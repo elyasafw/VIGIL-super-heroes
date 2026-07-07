@@ -1,10 +1,16 @@
-import { readData, writeData } from "../services/heroService.js";
+import {
+    readData,
+    writeData,
+    filteredData,
+    sortData,
+    paginateData,
+    getHeroesByQuery,
+} from "../services/heroService.js";
 
-const currentData = await readData();
-
-export async function getAllHeroes(req, res) {
+export async function getHeroes(req, res) {
     try {
-        res.end(JSON.stringify(currentData, null, 4));
+        const allHeroes = await getHeroesByQuery(req.query);
+        res.end(JSON.stringify(allHeroes, null, 4));
     } catch (error) {
         req.statusCode = 500;
         res.end(JSON.stringify({ error: `Internal Server Error - ${error}` }));
