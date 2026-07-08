@@ -4,5 +4,6 @@ export const router = {
     GET: {
         "/health": controller.serverHealthReport,
         "/heroes": controller.getHeroes,
+        "/health/:id": controller.searchHeroByID,
     },
 };
