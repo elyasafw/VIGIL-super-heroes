@@ -30,3 +30,14 @@ export async function getHeroes(req, res) {
         res.end(JSON.stringify({ error: `Internal Server Error - ${error}` }));
     }
 }
+
+export async function searchHeroByID(req, res) {
+    try {
+        const allHeroes = await readData();
+        const hero = allHeroes.find((hero) => hero.id == req.params.id);
+        res.end(JSON.stringify(hero, null, 4));
+    } catch (error) {
+        res.statusCode = 404;
+        res.end(JSON.stringify({ error: `${error}` }));
+    }
+}
