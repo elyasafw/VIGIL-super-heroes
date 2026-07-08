@@ -35,9 +35,17 @@ export async function searchHeroByID(req, res) {
     try {
         const allHeroes = await readData();
         const hero = allHeroes.find((hero) => hero.id == req.params.id);
+        if (!hero) {
+            res.statusCode = 404;
+            res.end(
+                JSON.stringify({
+                    message: `hero ID: ${req.params.id} not found`,
+                }),
+            );
+        }
         res.end(JSON.stringify(hero, null, 4));
     } catch (error) {
-        res.statusCode = 404;
+        res.statusCode = 400;
         res.end(JSON.stringify({ error: `${error}` }));
     }
 }
